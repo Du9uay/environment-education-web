@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/environment-education-web/static/css/main.56bc1983.css",
+    "main.js": "/environment-education-web/static/js/main.851160f4.js",
+    "index.html": "/environment-education-web/index.html",
+    "main.56bc1983.css.map": "/environment-education-web/static/css/main.56bc1983.css.map",
+    "main.851160f4.js.map": "/environment-education-web/static/js/main.851160f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56bc1983.css",
+    "static/js/main.851160f4.js"
+  ]
+}

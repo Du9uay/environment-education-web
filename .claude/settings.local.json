@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__read_file",
+      "mcp__serena__activate_project",
+      "mcp__serena__check_onboarding_performed",
+      "Bash(npm start)",
+      "mcp__serena__search_for_pattern",
+      "mcp__serena__replace_regex",
+      "mcp__serena__list_dir",
+      "mcp__serena__create_text_file",
+      "Bash(rm:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npx gh-pages:*)",
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(grep:*)",
+      "mcp__serena__get_symbols_overview",
+      "mcp__serena__onboarding",
+      "mcp__serena__write_memory",
+      "Bash(cp:*)",
+      "mcp__serena__execute_shell_command",
+      "Bash(npx stylelint:*)",
+      "Bash(sed:*)",
+      "mcp__serena__replace_symbol_body",
+      "Bash(git init:*)",
+      "Bash(git branch:*)"
+    ],
+    "deny": []
+  }
+}
