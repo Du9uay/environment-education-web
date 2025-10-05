@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion';
 import { Droplets, Users, Award, Target, Network, Camera, Film, Edit3, TrendingUp, Lightbulb, ChevronRight, Building2, Briefcase, Trophy, Sparkles, GPT, N8N, CheckCircle, TestTube, Microscope } from '../components/Icons';
+import DigitalAvatarPlayer from '../components/DigitalAvatarPlayer';
 
 const HomePage: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -106,7 +107,7 @@ const HomePage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen py-12 px-4 overflow-hidden">
+    <div className="min-h-screen py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* 主标题区域 - 带动画 */}
         <motion.div 
@@ -169,12 +170,18 @@ const HomePage: React.FC = () => {
 
         {/* 新增大标题：为什么要学习这节课 */}
         <motion.section
-          className="mb-16 text-center"
+          className="mb-16 text-center relative overflow-visible"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+          {/* 数字人播放器 */}
+          <DigitalAvatarPlayer
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuYqXCNXyowr.mov"
+            position={{ top: 16, right: '-16rem' }}
+          />
+
           <motion.h1
             className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-[color:var(--gold-cinema)] via-[color:var(--gold-warm)] to-[color:var(--accent-sand-500)] bg-clip-text text-transparent"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -204,11 +211,17 @@ const HomePage: React.FC = () => {
 
         {/* 第一部分：为什么要关注行业 */}
         <motion.section
-          className="mb-20"
+          className="mb-20 relative overflow-visible"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
+          {/* 数字人播放器 */}
+          <DigitalAvatarPlayer
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuYJjY0BWdlQ.mov"
+            position={{ top: 16, right: '-16rem' }}
+          />
+
           {/* 章节标题 */}
           <motion.div
             className="flex items-center mb-12"
@@ -639,11 +652,17 @@ const HomePage: React.FC = () => {
 
         {/* 第三部分：关于岗位你该知道的是 */}
         <motion.section
-          className="mb-20"
+          className="mb-20 relative overflow-visible"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
+          {/* 数字人播放器 */}
+          <DigitalAvatarPlayer
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuYJjY0B9jlT.mov"
+            position={{ top: 16, right: '-16rem' }}
+          />
+
           {/* 章节标题 */}
           <motion.div
             className="flex items-center mb-12"
@@ -865,11 +884,17 @@ const HomePage: React.FC = () => {
 
         {/* 第四部分：通过学习，你能学到什么 */}
         <motion.section
-          className="mb-20"
+          className="mb-20 relative overflow-visible"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
+          {/* 数字人播放器 */}
+          <DigitalAvatarPlayer
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuYJjY0B5Zoy.mov"
+            position={{ top: 16, right: '-16rem' }}
+          />
+
           {/* 章节标题 */}
           <motion.div
             className="flex items-center mb-12"
@@ -1128,7 +1153,13 @@ const HomePage: React.FC = () => {
         </motion.section>
 
         {/* 职业发展：岗位介绍 */}
-        <motion.section className="mb-20" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.8 }}>
+        <motion.section className="mb-20 relative overflow-visible" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.8 }}>
+          {/* 数字人播放器 */}
+          <DigitalAvatarPlayer
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuYJjY0BNRQr.mov"
+            position={{ top: 16, right: '-16rem' }}
+          />
+
           {/* 章节标题 */}
           <motion.div
             className="text-center mb-12"

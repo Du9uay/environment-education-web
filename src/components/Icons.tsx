@@ -471,3 +471,9 @@ export const LumaAI: React.FC<IconProps> = ({ className = '', size = 24 }) => (
     <path d="M512 509.696V0L71.9872 257.1264v509.7472L512 1024l440.0128-257.1264L512 509.696z" />
   </svg>
 );
+
+export const Play: React.FC<IconProps> = ({ className = '', size = 24 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <polygon points="5,3 19,12 5,21 5,3"/>
+  </svg>
+);

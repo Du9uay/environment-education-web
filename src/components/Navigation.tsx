@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Droplets } from './Icons';
+import { Droplets, Play, X } from './Icons';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -97,6 +100,13 @@ const Navigation: React.FC = () => {
             >
               课堂测试
             </Link>
+            <button
+              onClick={() => setIsTrialModalOpen(true)}
+              className="relative text-sm font-medium text-base-50/80 hover:text-base-50 transition-colors focus-accent flex items-center space-x-1"
+            >
+              <Play className="w-4 h-4" />
+              <span>直播回放</span>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -150,9 +160,88 @@ const Navigation: React.FC = () => {
             >
               课堂测试
             </Link>
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsTrialModalOpen(true);
+              }}
+              className="block px-4 py-2 text-sm font-medium rounded-lg transition-colors text-base-50/80 hover:text-base-50 hover:bg-white/5 w-full text-left flex items-center space-x-2"
+            >
+              <Play className="w-4 h-4" />
+              <span>直播回放</span>
+            </button>
           </div>
         )}
       </div>
+
+      {/* 直播回放模态框 */}
+      <AnimatePresence>
+        {isTrialModalOpen && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => {
+              if (videoRef.current) {
+                videoRef.current.pause();
+              }
+              setIsTrialModalOpen(false);
+            }}
+          >
+            {/* 背景遮罩 */}
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+            {/* 视频容器 */}
+            <motion.div
+              className="relative z-10 w-full max-w-5xl"
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* 关闭按钮 */}
+              <button
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.pause();
+                  }
+                  setIsTrialModalOpen(false);
+                }}
+                className="absolute -top-12 right-0 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-20"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* 视频播放器 */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
+                <video
+                  ref={videoRef}
+                  className="w-full h-auto"
+                  controls
+                  controlsList="nodownload"
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuYJjY0B6yTR.mov" type="video/mp4" />
+                  您的浏览器不支持视频播放。
+                </video>
+              </div>
+
+              {/* 标题 */}
+              <motion.div
+                className="mt-4 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="text-xl font-bold text-white">课程直播回放</h3>
+                <p className="text-sm text-white/60 mt-1">水质样品的采样与保存 - 完整课程讲解</p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
