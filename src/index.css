@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+/* 环保水质检测主题色彩变量 - 优化版 */
+:root {
+  /* 主色调 - 深蓝色系 */
+  --primary-blue: #0c4a6e;      /* 主背景深蓝 */
+  --primary-blue-mid: #075985;  /* 中蓝 */
+  --primary-blue-light: #164e63;/* 浅蓝 */
+
+  /* 强调色 - 青蓝色系 */
+  --accent-cyan: #38bdf8;       /* 主强调 - 明亮青蓝 */
+  --accent-cyan-light: #7dd3fc; /* 浅青蓝 */
+  --accent-cyan-dark: #0ea5e9;  /* 深青蓝 */
+
+  /* 文本色彩 - 高对比度优化 */
+  --text-primary: #ffffff;      /* 主要文本 - 纯白（最高对比度） */
+  --text-secondary: #e0f2fe;    /* 次要文本 - 浅水蓝白 */
+  --text-muted: #bae6fd;        /* 灰度文本 - 淡水蓝 */
+  --text-accent: #38bdf8;       /* 强调文本 - 明亮青蓝 */
+
+  /* 背景色彩 */
+  --bg-primary: #0c4a6e;        /* 主背景 - 深蓝 */
+  --bg-secondary: #075985;      /* 次背景 - 中蓝 */
+  --bg-card: rgba(56, 189, 248, 0.08);  /* 卡片背景 - 极淡透明青蓝 */
+
+  /* 玻璃效果 - 更柔和 */
+  --glass-base: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(56, 189, 248, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.2);
+
+  /* 兼容旧颜色变量 - 映射到青蓝色系 */
+  --gold-cinema: #38bdf8;       /* 映射到明亮青蓝 */
+  --gold-warm: #7dd3fc;         /* 映射到浅青蓝 */
+  --gold-vintage: #0ea5e9;      /* 映射到深青蓝 */
+  --accent-sand-500: #38bdf8;   /* 映射到明亮青蓝 */
+
+  /* Cinema主题文本颜色 */
+  --text-cinema-primary: #ffffff;
+  --text-cinema-secondary: #e0f2fe;
+  --text-cinema-muted: #bae6fd;
+  --bg-cinema-dark: #0c4a6e;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* 统一的按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-cyan-dark) 0%, var(--accent-cyan) 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(56, 189, 248, 0.35);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+.btn-primary:focus {
+  outline: none;
+}
+
+/* 统一的卡片样式 - 优化玻璃效果 */
+.card-base {
+  background: var(--glass-base);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 统一的玻璃效果 - 优化版 */
+.glass-effect {
+  background: var(--glass-base);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.glass-card {
+  background: var(--glass-base);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 导航栏玻璃效果 */
+.nav-glass {
+  background: rgba(12, 74, 110, 0.7);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* 页面卡片玻璃效果 - cinema主题 */
+.glass-cinema {
+  background: var(--glass-base);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px var(--glass-shadow);
+}
+
+/* 移除焦点样式 */
+*:focus {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: none !important;
+}
+
+/* 隐藏滚动条样式 */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* 优化动画性能 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
