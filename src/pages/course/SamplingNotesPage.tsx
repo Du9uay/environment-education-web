@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Monitor, Waves, Network, Droplets } from '../../components/Icons';
+import { Shield, Monitor, Waves, Network, Droplets, ArrowLeft } from '../../components/Icons';
 
 const SamplingNotesPage: React.FC = () => {
   return (
@@ -301,6 +302,34 @@ const SamplingNotesPage: React.FC = () => {
               </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* 章节导航按钮 */}
+        <motion.div
+          className="flex justify-between items-center pt-12 pb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <Link
+            to="/course/quality-control"
+            className="group relative overflow-hidden px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-white/70 hover:text-white font-medium transition-all duration-300"
+          >
+            <span className="relative z-10 flex items-center">
+              <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+              上一章：质量控制方法
+            </span>
+          </Link>
+
+          <Link
+            to="/course-test"
+            className="group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            <span className="relative z-10 flex items-center">
+              进入课堂测试
+            </span>
+          </Link>
         </motion.div>
       </div>
     </div>

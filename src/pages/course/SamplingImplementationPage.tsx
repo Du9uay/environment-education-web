@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FileText, TestTube, Beaker, Droplets, Shield } from '../../components/Icons';
+import { FileText, TestTube, Beaker, Droplets, Shield, ArrowLeft, ArrowRight } from '../../components/Icons';
 
 const SamplingImplementationPage: React.FC = () => {
   return (
@@ -282,6 +283,35 @@ const SamplingImplementationPage: React.FC = () => {
               </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* 章节导航按钮 */}
+        <motion.div
+          className="flex justify-between items-center pt-12 pb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <Link
+            to="/course/sampling-points"
+            className="group relative overflow-hidden px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-white/70 hover:text-white font-medium transition-all duration-300"
+          >
+            <span className="relative z-10 flex items-center">
+              <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+              上一章：采样点位布置
+            </span>
+          </Link>
+
+          <Link
+            to="/course/sample-preservation"
+            className="group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            <span className="relative z-10 flex items-center">
+              下一章：样品保存运输
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
         </motion.div>
       </div>
     </div>

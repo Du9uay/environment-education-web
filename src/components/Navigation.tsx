@@ -37,6 +37,16 @@ const Navigation: React.FC = () => {
   const isActivePath = (path: string) => location.pathname === path;
 
   return (
+    <>
+    {/* 直播回放按钮 - 固定在左上角 */}
+    <button
+      onClick={() => setIsTrialModalOpen(true)}
+      className="fixed top-4 left-6 z-[60] flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary-500/30"
+    >
+      <Play className="w-4 h-4" />
+      <span>直播回放</span>
+    </button>
+
     <nav className="fixed top-0 left-0 right-0 z-50 nav-glass">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -100,13 +110,6 @@ const Navigation: React.FC = () => {
             >
               课堂测试
             </Link>
-            <button
-              onClick={() => setIsTrialModalOpen(true)}
-              className="relative text-sm font-medium text-base-50/80 hover:text-base-50 transition-colors focus-accent flex items-center space-x-1"
-            >
-              <Play className="w-4 h-4" />
-              <span>直播回放</span>
-            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -160,19 +163,10 @@ const Navigation: React.FC = () => {
             >
               课堂测试
             </Link>
-            <button
-              onClick={() => {
-                setIsMenuOpen(false);
-                setIsTrialModalOpen(true);
-              }}
-              className="block px-4 py-2 text-sm font-medium rounded-lg transition-colors text-base-50/80 hover:text-base-50 hover:bg-white/5 w-full text-left flex items-center space-x-2"
-            >
-              <Play className="w-4 h-4" />
-              <span>直播回放</span>
-            </button>
           </div>
         )}
       </div>
+    </nav>
 
       {/* 直播回放模态框 */}
       <AnimatePresence>
@@ -242,7 +236,7 @@ const Navigation: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };
 
