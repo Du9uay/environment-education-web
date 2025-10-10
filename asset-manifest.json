@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/environment-education-web/static/css/main.5101cb12.css",
-    "main.js": "/environment-education-web/static/js/main.66ca5247.js",
+    "main.css": "/environment-education-web/static/css/main.1ce5984e.css",
+    "main.js": "/environment-education-web/static/js/main.144859a9.js",
     "index.html": "/environment-education-web/index.html",
-    "main.5101cb12.css.map": "/environment-education-web/static/css/main.5101cb12.css.map",
-    "main.66ca5247.js.map": "/environment-education-web/static/js/main.66ca5247.js.map"
+    "main.1ce5984e.css.map": "/environment-education-web/static/css/main.1ce5984e.css.map",
+    "main.144859a9.js.map": "/environment-education-web/static/js/main.144859a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.5101cb12.css",
-    "static/js/main.66ca5247.js"
+    "static/css/main.1ce5984e.css",
+    "static/js/main.144859a9.js"
   ]
 }
